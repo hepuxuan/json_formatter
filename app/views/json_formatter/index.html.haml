@@ -6,6 +6,6 @@
 		%br
 		=text_area_tag :json, @json, rows: 20
 		%br
-		=submit_tag 'format', class: "btn btn-primary"
+		=submit_tag 'format', class: 'btn btn-primary', id: 'format'
 	=text_area_tag :format_json, @format_json, rows: 20
 	%button.btn.btn-primary#copy.my_clip_button{"data-clipboard-target" => "format_json", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."} copy

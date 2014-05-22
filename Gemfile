@@ -33,7 +33,9 @@ gem 'zeroclipboard-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'pg'
+gem 'pg', group: :production
+
+gem 'sqlite3', group: :development
 
 gem 'rails_12factor', group: :production
 
