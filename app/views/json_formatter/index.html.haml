@@ -1,9 +1,10 @@
 .container
 	%h2 Json Formatter
-
 	= form_tag format_json_path do
 		=label :json, 'json input'
-		= select_tag(:indent, options_for_select([2, 4, 8]))
+		%br
+		=label :indent, 'format'
+		= select_tag(:indent, options_for_select([['2 spaces', 2], ['3 spaces', 3], ['4 spaces', 4]]))
 		%br
 		=text_area_tag :json, @json, rows: 20
 		%br
