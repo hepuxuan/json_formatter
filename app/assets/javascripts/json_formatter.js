@@ -4,7 +4,7 @@ $(document).ready(function(){
    	e.preventDefault();
    	try{
       var json = JSON.parse($('#json').val());
-      $('#format_json').text(JSON.stringify(json, null, 2));
+      $('#format_json').text(JSON.stringify(json, null, parseInt($('#indent').val())));
  	  } catch(e) {
  	  	$("<div class='alert alert-danger'> <a class='close' data-dismiss='alert'>×</a> <div id='flash_error'>"+e+"</div> </div>").insertBefore('.container')
  	  }

@@ -3,6 +3,7 @@
 
 	= form_tag format_json_path do
 		=label :json, 'json input'
+		= select_tag(:indent, options_for_select([2, 4, 8]))
 		%br
 		=text_area_tag :json, @json, rows: 20
 		%br
