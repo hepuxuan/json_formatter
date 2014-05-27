@@ -1,13 +1,18 @@
 .container
-	%h2 Json Formatter
-	= form_tag format_json_path do
-		=label :json, 'json input'
-		%br
-		=label :indent, 'format'
-		= select_tag(:indent, options_for_select([['2 spaces', 2], ['3 spaces', 3], ['4 spaces', 4]]))
-		%br
-		=text_area_tag :json, @json, rows: 20
-		%br
-		=submit_tag 'format', class: 'btn btn-primary', id: 'format'
-	=text_area_tag :format_json, @format_json, rows: 20, readonly: true
-	%button.btn.btn-primary#copy.my_clip_button{"data-clipboard-target" => "format_json", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."} copy
+  %h2 Json Formatter
+  = form_tag format_json_path do
+    =label :json, 'json input'
+    %br
+    =label :indent, 'format'
+    = select_tag(:indent, options_for_select([['2 spaces', 2], ['3 spaces', 3], ['4 spaces', 4]]))
+    %br
+    =text_area_tag :json, @json, rows: 20
+    %br
+    =submit_tag 'format', class: 'btn btn-primary', id: 'format'
+  %ul{class:'nav nav-tabs'}
+    %li= link_to('Pretty', '#pretty-json', id:'pretty_btn')
+    %li= link_to('Explore', '#pretty-json', id:'explore_btn')
+  #pretty-json
+    %pre{id: 'format_json'}= @format_json
+
+  %button.btn.btn-primary#copy.my_clip_button{"data-clipboard-target" => "format_json", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."} copy
