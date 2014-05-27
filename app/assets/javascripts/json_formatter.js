@@ -1,12 +1,11 @@
 $(document).ready(function(){
   var clip = new ZeroClipboard($("#copy")),
-    json_string = '',
-    indent_num = parseInt($('#indent').val());
+    json_string = '';
   $('#format').on('click', function(e) {
     e.preventDefault();
     try{
       var json = JSON.parse($('#json').val());
-      json_string = JSON.stringify(json, null, indent_num);
+      json_string = JSON.stringify(json, null, parseInt($('#indent').val()));
       $('#format_json').text(json_string);
     } catch(e) {
       $("<div class='alert alert-danger'> <a class='close' data-dismiss='alert'>×</a> <div id='flash_error'>"+e+"</div> </div>").insertBefore('.container')
@@ -14,7 +13,7 @@ $(document).ready(function(){
   })
   $('#explore_btn').on('click', function (e) {
     e.preventDefault();
-    $('#format_json').html(parseJson(JSON.parse($('#json').val()), indent_num))
+    $('#format_json').html(parseJson(JSON.parse($('#json').val()), parseInt($('#indent').val())))
   })
   $('#pretty_btn').on('click', function (e) {
     e.preventDefault();
