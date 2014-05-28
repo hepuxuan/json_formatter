@@ -14,5 +14,6 @@
     %li= link_to('Explore', '#pretty-json', id:'explore_btn')
   #pretty-json
     %pre{id: 'format_json'}= @format_json
+    %pre{id: 'explore_json'}= ''
 
   %button.btn.btn-primary#copy.my_clip_button{"data-clipboard-target" => "format_json", "data-clipboard-text" => "Default clipboard text from attribute", :title => "Click me to copy to clipboard."} copy
